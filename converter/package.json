@@ -1,0 +1,12 @@
+{
+	"name": "converter",
+	"version": "1.1.0",
+	"description": "Convert Selenium script to Protractor script",
+	"main": "index.js",
+	"dependencies": {
+		"fs": "*",
+		"path": "*",
+		"process": "0.11.9",
+		"json5": "*"
+	}
+}
