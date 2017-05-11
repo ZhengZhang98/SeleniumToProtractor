@@ -23,9 +23,9 @@ builder.translate.getLocaleName = function() {
 
 builder.translate.getEffectiveLocaleName = function() {
   if (!builder.translate.locales[builder.translate.locName]) {
-    if (builder.translate.locName.indexOf('-') != -1) {
-      if (builder.translate.locales[builder.translate.locName.split('-')[0]]) {
-        return builder.translate.locName.split('-')[0];
+    if (builder.translate.locName.indexOf('_') != -1) {
+      if (builder.translate.locales[builder.translate.locName.split('_')[0]]) {
+        return builder.translate.locName.split('_')[0];
       }
     }
     return builder.translate.DEFAULT_LOC_NAME;
@@ -39,9 +39,9 @@ builder.translate.getNewLocaleName = function() {
 
 builder.translate.getEffectiveNewLocaleName = function() {
   if (!builder.translate.locales[builder.translate.newLocName]) {
-    if (builder.translate.newLocName.indexOf('-') != -1) {
-      if (builder.translate.locales[builder.translate.newLocName.split('-')[0]]) {
-        return builder.translate.newLocName.split('-')[0];
+    if (builder.translate.newLocName.indexOf('_') != -1) {
+      if (builder.translate.locales[builder.translate.newLocName.split('_')[0]]) {
+        return builder.translate.newLocName.split('_')[0];
       }
     }
     return builder.translate.DEFAULT_LOC_NAME;
@@ -64,43 +64,6 @@ builder.translate.getAvailableLocales = function() {
   return ls;
 };
 
-_t = function _t(str) {
-  return _tl(str, builder.translate.locName, arguments);
-}
-
-_tl = function _tl(str, locName, args) {
-  if (!builder.translate.locales[locName]) {
-    if (locName.indexOf('-') != -1) {
-      return _tl(str, locName.split('-')[0], args);
-    } else {
-      return _tl(str, builder.translate.DEFAULT_LOC_NAME, args);
-    }
-  }
-  var s = builder.translate.locales[locName].mapping[str];
-  if (!s) {
-    if (locName == builder.translate.DEFAULT_LOC_NAME) {
-      return "{" + str + "}";
-    } else {
-      if (locName.indexOf('-') != -1) {
-        return _tl(str, locName.split('-')[0], args);
-      } else {
-        return _tl(str, builder.translate.DEFAULT_LOC_NAME, args);
-      }
-    }
-  }
-  for (var i = 1; i < args.length; i++) {
-    var arg = args[i];
-    if (arg && typeof arg == 'object') {
-      for (var k in arg) {
-        var v = arg[k];
-        s = s.replace(new RegExp("\\{" + k + "\\}", "g"), "" + v);
-      }
-    } else {
-      s = s.replace(new RegExp("\\{" + (i - 1) + "\\}", "g"), "" + arg);
-    }
-  }
-  return s;
-}
 
 var locName = builder.translate.getLocNamePref();
 builder.translate.locName = locName;
@@ -112,8 +75,8 @@ builder.translate.translateStepName = function(stepName) {
 
 builder.translate.translateStepNameTo = function(stepName, locName) {
   if (!builder.translate.locales[locName]) {
-    if (locName.indexOf('-') != -1) {
-      return builder.translate.translateStepNameTo(stepName, locName.split('-')[0]);
+    if (locName.indexOf('_') != -1) {
+      return builder.translate.translateStepNameTo(stepName, locName.split('_')[0]);
     } else {
       return builder.translate.translateStepNameTo(stepName, builder.translate.DEFAULT_LOC_NAME);
     }
@@ -124,8 +87,8 @@ builder.translate.translateStepNameTo = function(stepName, locName) {
     if (locName == builder.translate.DEFAULT_LOC_NAME) {
       return stepName;
     } else {
-      if (locName.indexOf('-') != -1) {
-        return builder.translate.translateStepNameTo(stepName, locName.split('-')[0]);
+      if (locName.indexOf('_') != -1) {
+        return builder.translate.translateStepNameTo(stepName, locName.split('_')[0]);
       } else {
         return builder.translate.translateStepNameTo(stepName, builder.translate.DEFAULT_LOC_NAME);
       }
@@ -140,8 +103,8 @@ builder.translate.translateParamName = function(paramName, stepName) {
 
 builder.translate.translateParamNameTo = function(paramName, stepName, locName) {
   if (!builder.translate.locales[locName]) {
-    if (locName.indexOf('-') != -1) {
-      return builder.translate.translateParamNameTo(paramName, stepName, locName.split('-')[0]);
+    if (locName.indexOf('_') != -1) {
+      return builder.translate.translateParamNameTo(paramName, stepName, locName.split('_')[0]);
     } else {
       return builder.translate.translateParamNameTo(paramName, stepName, builder.translate.DEFAULT_LOC_NAME);
     }
@@ -156,8 +119,8 @@ builder.translate.translateParamNameTo = function(paramName, stepName, locName) 
     if (locName == builder.translate.DEFAULT_LOC_NAME) {
       return paramName;
     } else {
-      if (locName.indexOf('-') != -1) {
-        return builder.translate.translateParamNameTo(paramName, stepName, locName.split('-')[0]);
+      if (locName.indexOf('_') != -1) {
+        return builder.translate.translateParamNameTo(paramName, stepName, locName.split('_')[0]);
       } else {
         return builder.translate.translateParamNameTo(paramName, stepName, builder.translate.DEFAULT_LOC_NAME);
       }
@@ -172,8 +135,8 @@ builder.translate.translateStepDoc = function(versionName, stepName, def) {
 
 builder.translate.translateStepDocTo = function(versionName, stepName, def, locName) {
   if (!builder.translate.locales[locName]) {
-    if (locName.indexOf('-') != -1) {
-      return builder.translate.translateStepDocTo(versionName, stepName, def, locName.split('-')[0]);
+    if (locName.indexOf('_') != -1) {
+      return builder.translate.translateStepDocTo(versionName, stepName, def, locName.split('_')[0]);
     } else {
       return builder.translate.translateStepDocTo(versionName, stepName, def, builder.translate.DEFAULT_LOC_NAME);
     }
@@ -185,8 +148,8 @@ builder.translate.translateStepDocTo = function(versionName, stepName, def, locN
     if (locName == builder.translate.DEFAULT_LOC_NAME) {
       return def;
     } else {
-      if (locName.indexOf('-') != -1) {
-        return builder.translate.translateStepDocTo(versionName, stepName, def, locName.split('-')[0]);
+      if (locName.indexOf('_') != -1) {
+        return builder.translate.translateStepDocTo(versionName, stepName, def, locName.split('_')[0]);
       } else {
         return builder.translate.translateStepDocTo(versionName, stepName, def, builder.translate.DEFAULT_LOC_NAME);
       }
@@ -202,8 +165,8 @@ builder.translate.translateParamDoc = function(versionName, stepName, paramName,
 
 builder.translate.translateParamDocTo = function(versionName, stepName, paramName, def, locName) {
   if (!builder.translate.locales[locName]) {
-    if (locName.indexOf('-') != -1) {
-      return builder.translate.translateParamDocTo(versionName, stepName, paramName, def, locName.split('-')[0]);
+    if (locName.indexOf('_') != -1) {
+      return builder.translate.translateParamDocTo(versionName, stepName, paramName, def, locName.split('_')[0]);
     } else {
       return builder.translate.translateParamDocTo(versionName, stepName, paramName, def, builder.translate.DEFAULT_LOC_NAME);
     }
@@ -214,8 +177,8 @@ builder.translate.translateParamDocTo = function(versionName, stepName, paramNam
     if (locName == builder.translate.DEFAULT_LOC_NAME) {
       return def;
     } else {
-      if (locName.indexOf('-') != -1) {
-        return builder.translate.translateParamDocTo(versionName, stepName, paramName, def, locName.split('-')[0]);
+      if (locName.indexOf('_') != -1) {
+        return builder.translate.translateParamDocTo(versionName, stepName, paramName, def, locName.split('_')[0]);
       } else {
         return builder.translate.translateParamDocTo(versionName, stepName, paramName, def, builder.translate.DEFAULT_LOC_NAME);
       }

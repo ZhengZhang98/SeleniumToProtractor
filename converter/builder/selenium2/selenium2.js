@@ -4,6 +4,7 @@
  * export a stepTypes map and a categories list that have the same interface so that most code
  * doesn't have to know which version of Selenium is being used.
  */
+
 builder.selenium2 = {
   toString: function() { return "__SELENIUM_2__"; },
   name: "Selenium 2",
@@ -159,119 +160,6 @@ for (var n in builder.selenium2.__stepData) {
 builder.selenium2.defaultStepType = builder.selenium2.stepTypes.clickElement;
 builder.selenium2.navigateToUrlStepType = builder.selenium2.stepTypes.get;
 
-/** List of categories. */
-builder.selenium2.categories = [
-  [_t('navigation_sel2_cat'), [
-    builder.selenium2.stepTypes.get,
-    builder.selenium2.stepTypes.refresh,
-    builder.selenium2.stepTypes.goBack,
-    builder.selenium2.stepTypes.goForward,
-    builder.selenium2.stepTypes.close
-  ]],
-  [_t('input_sel2_cat'), [
-    builder.selenium2.stepTypes.clickElement,
-    builder.selenium2.stepTypes.doubleClickElement,
-    builder.selenium2.stepTypes.mouseOverElement,
-    builder.selenium2.stepTypes.setElementText,
-    builder.selenium2.stepTypes.sendKeysToElement,
-    builder.selenium2.stepTypes.setElementSelected,
-    builder.selenium2.stepTypes.setElementNotSelected,
-    builder.selenium2.stepTypes.clearSelections,
-    builder.selenium2.stepTypes.submitElement,
-    builder.selenium2.stepTypes.dragToAndDropElement,
-    builder.selenium2.stepTypes.clickAndHoldElement,
-    builder.selenium2.stepTypes.releaseElement
-  ]],
-  [_t('misc_sel2_cat'),[
-    builder.selenium2.stepTypes.addCookie,
-    builder.selenium2.stepTypes.deleteCookie,
-    builder.selenium2.stepTypes.saveScreenshot,
-    builder.selenium2.stepTypes.print,
-    builder.selenium2.stepTypes.pause,
-    builder.selenium2.stepTypes.switchToFrame,
-    builder.selenium2.stepTypes.switchToFrameByIndex,
-    builder.selenium2.stepTypes.switchToWindow,
-    builder.selenium2.stepTypes.switchToWindowByIndex,
-    builder.selenium2.stepTypes.switchToWindowByTitle,
-    builder.selenium2.stepTypes.switchToDefaultContent,
-    builder.selenium2.stepTypes.answerAlert,
-    builder.selenium2.stepTypes.acceptAlert,
-    builder.selenium2.stepTypes.dismissAlert,
-    builder.selenium2.stepTypes.setWindowSize
-  ]],
-  [_t('assertion_sel2_cat'), [
-    builder.selenium2.stepTypes.assertCurrentUrl,
-    builder.selenium2.stepTypes.assertTitle,
-    builder.selenium2.stepTypes.assertText,
-    builder.selenium2.stepTypes.assertTextPresent,
-    builder.selenium2.stepTypes.assertBodyText,
-    builder.selenium2.stepTypes.assertPageSource,
-    builder.selenium2.stepTypes.assertElementPresent,
-    builder.selenium2.stepTypes.assertElementSelected,
-    builder.selenium2.stepTypes.assertElementAttribute,
-	builder.selenium2.stepTypes.assertElementStyle,
-    builder.selenium2.stepTypes.assertElementValue,
-    builder.selenium2.stepTypes.assertCookiePresent,
-    builder.selenium2.stepTypes.assertCookieByName,
-    builder.selenium2.stepTypes.assertAlertText,
-    builder.selenium2.stepTypes.assertAlertPresent,
-    builder.selenium2.stepTypes.assertEval
-  ]],
-  [_t('verify_sel2_cat'), [
-    builder.selenium2.stepTypes.verifyCurrentUrl,
-    builder.selenium2.stepTypes.verifyTitle,
-    builder.selenium2.stepTypes.verifyText,
-    builder.selenium2.stepTypes.verifyTextPresent,
-    builder.selenium2.stepTypes.verifyBodyText,
-    builder.selenium2.stepTypes.verifyPageSource,
-    builder.selenium2.stepTypes.verifyElementPresent,
-    builder.selenium2.stepTypes.verifyElementSelected,
-    builder.selenium2.stepTypes.verifyElementAttribute,
-	builder.selenium2.stepTypes.verifyElementStyle,
-    builder.selenium2.stepTypes.verifyElementValue,
-    builder.selenium2.stepTypes.verifyCookiePresent,
-    builder.selenium2.stepTypes.verifyCookieByName,
-    builder.selenium2.stepTypes.verifyAlertText,
-    builder.selenium2.stepTypes.verifyAlertPresent,
-    builder.selenium2.stepTypes.verifyEval
-  ]],
-  [_t('wait_sel2_cat'), [
-    builder.selenium2.stepTypes.waitForCurrentUrl,
-    builder.selenium2.stepTypes.waitForTitle,
-    builder.selenium2.stepTypes.waitForText,
-    builder.selenium2.stepTypes.waitForTextPresent,
-    builder.selenium2.stepTypes.waitForBodyText,
-    builder.selenium2.stepTypes.waitForPageSource,
-    builder.selenium2.stepTypes.waitForElementPresent,
-    builder.selenium2.stepTypes.waitForElementSelected,
-    builder.selenium2.stepTypes.waitForElementAttribute,
-	builder.selenium2.stepTypes.waitForElementStyle,
-    builder.selenium2.stepTypes.waitForElementValue,
-    builder.selenium2.stepTypes.waitForCookiePresent,
-    builder.selenium2.stepTypes.waitForCookieByName,
-    builder.selenium2.stepTypes.waitForAlertText,
-    builder.selenium2.stepTypes.waitForAlertPresent,
-    builder.selenium2.stepTypes.waitForEval
-  ]],
-  [_t('store_sel2_cat'), [
-    builder.selenium2.stepTypes.store,
-    builder.selenium2.stepTypes.storeCurrentUrl,
-    builder.selenium2.stepTypes.storeTitle,
-    builder.selenium2.stepTypes.storeText,
-    builder.selenium2.stepTypes.storeTextPresent,
-    builder.selenium2.stepTypes.storeBodyText,
-    builder.selenium2.stepTypes.storePageSource,
-    builder.selenium2.stepTypes.storeElementSelected,
-    builder.selenium2.stepTypes.storeElementAttribute,
-	builder.selenium2.stepTypes.storeElementStyle,
-    builder.selenium2.stepTypes.storeElementValue,
-    builder.selenium2.stepTypes.storeCookiePresent,
-    builder.selenium2.stepTypes.storeCookieByName,
-    builder.selenium2.stepTypes.storeAlertText,
-    builder.selenium2.stepTypes.storeAlertPresent,
-    builder.selenium2.stepTypes.storeEval
-  ]]
-];
 
 
 
